@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/2-preparation/2.1-preparingdynamodb/</loc>
+  </url><url>
+    <loc>/</loc>
+  </url><url>
+    <loc>/3-creatinglexbot/3.1-lexbottype/</loc>
+  </url><url>
+    <loc>/1-introduce/</loc>
+  </url><url>
+    <loc>/2-preparation/2.2-creatingiamroles/</loc>
+  </url><url>
+    <loc>/3-creatinglexbot/3.2-creatinglexbot/</loc>
+  </url><url>
+    <loc>/2-preparation/</loc>
+  </url><url>
+    <loc>/2-preparation/2.3-creatinglambdafunction/</loc>
+  </url><url>
+    <loc>/3-creatinglexbot/</loc>
+  </url><url>
+    <loc>/4-twillio/</loc>
+  </url><url>
+    <loc>/5-cleanup/</loc>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url>
+</urlset>

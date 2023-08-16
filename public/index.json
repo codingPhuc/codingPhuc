@@ -1,0 +1,92 @@
+[
+{
+	"uri": "/2-preparation/2.1-preparingdynamodb/",
+	"title": "Create Dynamodb",
+	"tags": [],
+	"description": "",
+	"content": "In this step we will learn how to create a Dynamodb databases\nThe following step will help you create a Dynamodb databases with the right configuration :\nCreating a Dynamodb databases EmployeesDataBases first go to your AWS console:\nclick on the search bar and type dynamoDB click on dynamoDB on Dynamodb click on create table on the Dynamodb creation form :\nfill in the table name as EmployeesDataBases Partition key as PhoneNumEmp and leave the sort key empty on the table setting click Customize Setting on the table class click Dynamodb standard on the read/write capacity click on On-demand we need to click on demand because we do not know the amount of time we write to the databases, but this is not recommend because it will cause us to lose a money if there is many people calling the application\non the last step click on create table check if the table have been created this usually take 1 minute : if the table status = active congratulation you have successfully created the dynamodb databases for employees "
+},
+{
+	"uri": "/",
+	"title": "Creating Chat bot using lex bot",
+	"tags": [],
+	"description": "",
+	"content": "Work with Amazon Lex bot to collect employees data Overall In this lab, you\u0026rsquo;ll learn how to implement and used amazon lex bot to create a chat bot that can collect employees data and store it in the Dynamodb thought a Lambda function\nContent Introduction Prepare Creating Lex Bot Twillio Cleaning up "
+},
+{
+	"uri": "/3-creatinglexbot/3.1-lexbottype/",
+	"title": "Creating Lex bot and custom type",
+	"tags": [],
+	"description": "",
+	"content": "Creating the bot Go to Lex bot console manager Click on Create bot from template in amazon lex click on bot click on create bot in configure bot setting : In Creation method click Create a blank bot In bot configuration set bot name as EmployeesBot In IAM role choose to create a role with basic permission Click no for Children’s Online Privacy Protection Act (COPPA) Click next Add languages to lex bot In languages choose english In Voice interaction choose None this is only a text bases application Creating a custom Slot types In Amazon Lex, custom slot types are like labels for specific types of information that your bot needs to understand. They help your bot recognize and grab important details from what users say, like dates, names, or places. This makes your bot smarter at understanding and responding accurately.\nIn the intend section tab click on Slot types click the Add slot type click Add a blank slot type In Add blank slot type : Add the slot type name as Jobs click next now configure the Jobs slot types : click Restrict to slot values add sotfware engineer as a value then click add add the value data engineer add the value data analysis then click Save Slot Type now let move on to create the lex bot configuration\n"
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "resources these are the following recourse that we will be using thought out this lab\nAmazon Lex Bot Amazon Lambada Amazon Dynamodb twillio resources explanation Amazon Lex Bot is a fully managed artificial intelligence (AI) service with advanced natural language models to design, build, test, and deploy conversational interfaces in applications.\nAmazon Lex Bot have the following used case:\nBuild virtual agents and voice assistants: Enable self-service capabilities with virtual contact center agents and interactive voice response (IVR). Users can change a password or schedule an appointment without speaking to a human agent. Automate informational responses : Design conversational solutions that provide responses to frequently asked questions. Improve Connect \u0026amp; Lex conversation flows for tech support, HR benefits, or finance with natural language search for FAQs powered by Amazon Kendra. Improve productivity with application bots : Automate basic user tasks in your application with powerful chatbots. Seamlessly connect with other enterprise software through AWS Lambda and maintain granular access control through IAM. Maximize the information trapped in transcripts : Design chatbots using existing contact center transcripts. Reduce design time from weeks to hours and accelerate bot deployment. today we will be using Amazon lex bot to create a Atomization process for collecting and storing employees data into the databases Amazon Lambda is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as a service (SaaS) applications, and only pay for what you use. Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. DynamoDB offers built-in security, continuous backups, automated multi-Region replication, in-memory caching, and data import and export tools. Twilio is a communication platform that provides APIs for developers to integrate features like sending and receiving messages, making phone calls, and handling video in their applications. It enables businesses to connect with their customers through various communication channels\n"
+},
+{
+	"uri": "/2-preparation/2.2-creatingiamroles/",
+	"title": "Create IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "Create IAM Role In this step, we will proceed to create IAM Role. In this IAM Role, the policy AmazonDynamoDBFullAccess and CloudWatchFullAccess will be assigned, this is the policy that allows the Lambda function to interact with DynamoDB databases.\nGo to IAM service administration interface In the left navigation bar, click Roles. Click Create role. on Select trusted entity Click AWS service. Click Lambda Click Next In the Search box, enter AmazonDynamoDBFullAccess and press Enter to search for this policy. Click the policy AmazonDynamoDBFullAccess. In the Search box, enter CloudWatchFullAccess and press Enter to search for this policy. Click the policy CloudWatchFullAccess then click Next Click Next: Review. Name the Role BotRoles in Role Name check again if the roles are correct\nClick Create Role Next, we will configure the role to Lambda so it can be able to call the databases.\n"
+},
+{
+	"uri": "/3-creatinglexbot/3.2-creatinglexbot/",
+	"title": "Creating lex bot",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter we will be configuring the lex bot to work with our lambda function and add data to our dynamodb databases\nConfigure lex bot go to intent tab on lex bot and Click on NewIntent that was created when you create the bot If you don\u0026rsquo;t have a intent name NewIntent you can create one by click on create Intent\nname the intent as BotIntent In the Sample utterances : click on Plain text then add the code bellow register information\rmy name is {FirstName} phone number {PhoneNumEmp} and position {job_position} 4. In Slots :\nclick on Add Slot Add the name : PhoneNumEmp Add the slot types : AMAZON.PhoneNumber Add the Prompts : what your phone number ? do the same for the employees name Add the name : FirstName Add the slot types : AMAZON.FirstName Add the Prompts : tell me your name ? do the same for the employees job Add the name : FirstName Add the slot types : AMAZON.FirstName Add the Prompts : tell me your name ? in the Confirmation :\nclick Active fill the Confirmation prompt : so your name is {FirstName} , phone number {PhoneNumEmp} and current job postion is {job_position} correct ? Decline response prompt : okay we will ask again In Fulfillment click on Active finally click on Use a Lambda function for initialization and validation then click on build configure the test :\nClick on test Click on the setting icon for the source choose BotFunction then choose Save fill in the require information to test out the bot then check the databases to see if the Information is register go to AWS Dynamodbv2\nclick on Explore items in Explore item click on EmployeesDataBases : We can see that the information have been log into our databases\n"
+},
+{
+	"uri": "/2-preparation/",
+	"title": "preparation",
+	"tags": [],
+	"description": "",
+	"content": "\ryou need to create dynamodb and lambda function to proceed with this lab\nTo learn how to create dynamodb and lambda function , you can refer to these lab:\nAbout dynamodb work with Lambda In order for Lambda function to work with dynamodb we need to create our own IAM role to gain permission\nContent Create Dynamodb Create IAM Role Create Lambda function "
+},
+{
+	"uri": "/2-preparation/2.3-creatinglambdafunction/",
+	"title": "Create Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": "In this step we will learn how to create a Lambda function to work with our DynamoDb and be the logic that operate our lex bot\nThe architecture overview after you complete this step will be as follows:\nGo to Lambda Service Interface click on create a function in the create function page set the Function name to BotFunction set the Runtime to Python 3.11 choose the Architecture to be x86_64 change the default execution role to Used an existing role in the existing role choose the BotRoles that we have created then click Create Function in the BotFunction click on configuration on the configuration tab : click on Environment variables then click on Edit on the edit tab click on Add Environment variables edit the key and value to connect the databases with the Lambda function : for the environment add key TABLE_NAME for the value add EmployeesDataBases then click save get the code for Lambda Function : go to this github link GITHUB then click ctrl + A to copy all the code Paste the code into the code tab in BotFunction then click Deploy Now we are done with the preparation for lex bot databases and logic now we will move on to configuring the lex bot\n"
+},
+{
+	"uri": "/3-creatinglexbot/",
+	"title": "Creating Lex Bot",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will configure our AWS lexv2 bot with the correct slot and intend and connect it with our Lambda function . Content 3.1. Creating Lex bot and custom type\n3.2. CREATING LEX BOT\n"
+},
+{
+	"uri": "/4-twillio/",
+	"title": "Twillio",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter we will configure twilio to work with our Amazon lex bot\ncreating a twillio account Open twilio with the following link TWILLIO\nclick on login then follow the instruction to login into your account choose the most importance part in the TWILLIO configuration : choose SMS as used in the How do you want to build with twillio choose with minimum code then click get started in twillio home screen choose get phone number click on your twillio account get the Account SID and Auth Token to used with lex bot building lex bot to work with twillio on bot version click create version click on Create version on channel integration click Add channel on the channel integration creation form :\nclick on twillio name the bot twillio bot choose TestBotAlias choose language as English then add the account id and authentication key in your twillio account 5 when created successfully copy the url of the channel calling whatapp using twillio testing the whatapp messaging In twillio click on Messaging click on Send a WhatApp Message In whatapp try to send a message to whatapp twillio will give you the phone number and join code copy them: find the twillio number on whatapp then enter paste the code to used twillio In the whatapp sand bot setting copy the lex bot url into the post then hit save now you can talk to your lex bot thought whatapp using twillio "
+},
+{
+	"uri": "/5-cleanup/",
+	"title": "Clean up",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter we will clean Up all the resource that we have been using\nclean up the Dynamodb databases go to Dynamodb console Dynamodb click on EmployeesDatabases click on delete a delete confirmation form will show up : fill in confirm then click delete clean up the Lambda function Go to Lambda Service Interface click on BotFunction click on delete a delete confirmation form will show up : fill in delete then click delete clean up the lex bot go to lex bot console lex bot click delete delete the lex bot "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

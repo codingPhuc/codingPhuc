@@ -1,0 +1,92 @@
+[
+{
+	"uri": "/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Tài liệu Dưới đây là các tài liệu mà chúng ta sẽ sử dụng trong suốt quá trình thực hiện lab này\nBot Amazon Lex Amazon Lambda Amazon DynamoDB Twilio Giải thích các tài liệu Bot Amazon Lex là một dịch vụ trí tuệ nhân tạo (AI) được quản lý hoàn toàn với các mô hình ngôn ngữ tự nhiên tiên tiến để thiết kế, xây dựng, kiểm tra và triển khai các giao diện trò chuyện trong các ứng dụng.\nBot Amazon Lex có các trường hợp sử dụng sau:\nXây dựng các trợ lý ảo và trợ lý giọng nói: Kích hoạt khả năng tự phục vụ với các trợ lý trung tâm liên hệ ảo và phản hồi giọng nói tương tác (IVR). Người dùng có thể thay đổi mật khẩu hoặc đặt lịch hẹn mà không cần nói chuyện với một trợ lý con người. Tự động hóa phản hồi thông tin : Thiết kế các giải pháp trò chuyện cung cấp phản hồi cho các câu hỏi thường được đặt ra. Cải thiện luồng trò chuyện Connect \u0026amp; Lex cho hỗ trợ kỹ thuật, quyền lợi HR hoặc tài chính với tìm kiếm ngôn ngữ tự nhiên cho các câu hỏi thường được đặt ra được hỗ trợ bởi Amazon Kendra. Tăng năng suất với bot ứng dụng : Tự động hóa các nhiệm vụ cơ bản của người dùng trong ứng dụng của bạn với các trò chuyện bot mạnh mẽ. Kết nối mượt mà với phần mềm doanh nghiệp khác thông qua AWS Lambda và duy trì kiểm soát quyền truy cập chi tiết thông qua IAM. Tối đa hóa thông tin bị mắc kẹt trong bản ghi : Thiết kế bot trò chuyện bằng cách sử dụng bản ghi trung tâm liên hệ hiện có. Giảm thời gian thiết kế từ tuần thành giờ và tăng tốc triển khai bot. Hôm nay, chúng ta sẽ sử dụng Bot Amazon Lex để tạo quy trình tự động hóa cho việc thu thập và lưu trữ dữ liệu nhân viên vào cơ sở dữ liệu Amazon Lambda là dịch vụ tính toán không máy chủ, dựa trên sự kiện, cho phép bạn chạy mã cho hầu hết mọi loại ứng dụng hoặc dịch vụ backend mà không cần cung cấp hoặc quản lý máy chủ. Bạn có thể kích hoạt Lambda từ hơn 200 dịch vụ AWS và ứng dụng phần mềm dưới dạng dịch vụ (SaaS), và chỉ trả tiền cho những gì bạn sử dụng. Amazon DynamoDB là cơ sở dữ liệu NoSQL hàng đầu, được quản lý hoàn toàn, không máy chủ, dựa trên khóa-vị trí, được thiết kế để chạy ứng dụng hiệu suất cao ở bất kỳ quy mô nào. DynamoDB cung cấp bảo mật tích hợp, sao lưu liên tục, sao lưu đa khu vực tự động, bộ nhớ cache trong bộ nhớ, và các công cụ nhập và xuất dữ liệu. Twilio là một nền tảng truyền thông cung cấp các API cho các nhà phát triển để tích hợp các tính năng như gửi và nhận tin nhắn, thực hiện cuộc gọi điện thoại và xử lý video trong ứng dụng của họ. Nó cho phép doanh nghiệp kết nối với khách hàng thông qua các kênh giao tiếp khác nhau.\n"
+},
+{
+	"uri": "/vi/3-creatinglexbot/3.1-lexbottype/",
+	"title": "Tạo bot Lex và loại tùy chỉnh",
+	"tags": [],
+	"description": "",
+	"content": "Tạo bot Truy cập Bảng điều khiển quản lý bot Lex Nhấp vào Tạo bot từ mẫu Trong Amazon Lex, nhấp vào bot Nhấp vào tạo bot Trong cấu hình bot : Trong phương pháp tạo chọn Tạo bot trống Trong cấu hình bot đặt tên bot là EmployeesBot Trong IAM role chọn tạo vai trò với quyền cơ bản Nhấp không với Children’s Online Privacy Protection Act (COPPA) Nhấp tiếp theo Thêm ngôn ngữ cho bot Lex Trong ngôn ngữ chọn English Trong giao tiếp giọng nói chọn None this is only a text bases application Tạo loại Slot tùy chỉnh Trong Amazon Lex, loại slot tùy chỉnh tương tự như nhãn cho các loại thông tin cụ thể mà bot của bạn cần hiểu. Chúng giúp bot của bạn nhận ra và lấy các chi tiết quan trọng từ những gì người dùng nói, chẳng hạn như ngày tháng, tên hoặc địa điểm. Điều này giúp bot của bạn thông minh hơn trong việc hiểu và phản hồi một cách chính xác.\nTrong tab mục đích, nhấp vào Slot types Nhấp vào Add slot type Nhấp Add a blank slot type Trong Add blank slot type : Thêm tên loại slot là Jobs Nhấp next Bây giờ cấu hình loại slot Jobs : Nhấp vào Restrict to slot values Thêm software engineer làm giá trị Sau đó nhấp Add Thêm giá trị data engineer Thêm giá trị data analysis Sau đó nhấp Save Slot Type Bây giờ chúng ta sẽ tiếp tục tạo cấu hình cho bot Lex\n"
+},
+{
+	"uri": "/vi/",
+	"title": "Tạo Chat bot sử dụng bot Lex",
+	"tags": [],
+	"description": "",
+	"content": "Làm việc với bot Amazon Lex để thu thập dữ liệu nhân viên Tổng quan Trong lab này, bạn sẽ học cách triển khai và sử dụng bot Amazon Lex để tạo một trò chuyện bot có thể thu thập dữ liệu nhân viên và lưu trữ nó trong Dynamodb thông qua hàm Lambda.\nNội dung Giới thiệu Chuẩn bị Tạo Bot Lex Twilio Dọn dẹp "
+},
+{
+	"uri": "/vi/2-preparation/2.1-preparingdynamodb/",
+	"title": "Tạo Dynamodb",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ tìm hiểu cách tạo cơ sở dữ liệu Dynamodb\nCác bước sau sẽ giúp bạn tạo cơ sở dữ liệu Dynamodb với cấu hình đúng:\nTạo cơ sở dữ liệu Dynamodb EmployeesDataBases Đầu tiên, truy cập bảng điều khiển AWS của bạn: nhấp vào thanh tìm kiếm và nhập dynamoDB nhấp vào dynamoDB Trên trang Dynamodb, nhấp vào tạo bảng Trên biểu mẫu tạo Dynamodb :\nđiền tên bảng là EmployeesDataBases Khóa phân vùng là PhoneNumEmp và để khóa sắp xếp trống trên phần thiết lập bảng, nhấp Tùy chỉnh cài đặt trên lớp bảng, chọn Dynamodb tiêu chuẩn trên khả năng đọc/giảng viết, nhấp vào On-demand Chúng ta cần chọn On-demand vì chúng ta không biết mức thời gian chúng ta viết vào cơ sở dữ liệu, nhưng điều này không được khuyến nghị vì nó sẽ khiến chúng ta mất tiền nếu có nhiều người gọi ứng dụng\nở bước cuối, nhấp vào tạo bảng Kiểm tra xem bảng đã được tạo chưa, thông thường điều này mất 1 phút : Nếu trạng thái của bảng = hoạt động, chúc mừng bạn đã thành công trong việc tạo cơ sở dữ liệu Dynamodb cho nhân viên "
+},
+{
+	"uri": "/vi/2-preparation/",
+	"title": "Chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "\rBạn cần tạo cơ sở dữ liệu DynamoDB và hàm Lambda để tiếp tục thực hiện lab này\nĐể tìm hiểu cách tạo cơ sở dữ liệu DynamoDB và hàm Lambda, bạn có thể tham khảo các lab sau:\nVề cơ sở dữ liệu DynamoDB Làm việc với Lambda Để Lambda function có thể làm việc với cơ sở dữ liệu DynamoDB, chúng ta cần tạo vai trò IAM riêng để có quyền truy cập.\nNội dung Tạo cơ sở dữ liệu DynamoDB Tạo vai trò IAM Tạo hàm Lambda "
+},
+{
+	"uri": "/vi/3-creatinglexbot/3.2-creatinglexbot/",
+	"title": "Tạo bot Lex",
+	"tags": [],
+	"description": "",
+	"content": "Trong chương này, chúng ta sẽ cấu hình bot Lex để làm việc với hàm lambda của chúng ta và thêm dữ liệu vào cơ sở dữ liệu Dynamodb của chúng ta\nCấu hình bot Lex Truy cập tab intent trên bot Lex và nhấp vào NewIntent mà đã được tạo khi bạn tạo bot Nếu bạn không có tên intent NewIntent, bạn có thể tạo một tên bằng cách nhấp vào tạo Intent\nĐặt tên intent là BotIntent Trong phần Sample utterances : Nhấp vào Plain text Sau đó thêm đoạn mã dưới đây 4. Trong Slots :\nNhấp vào Add Slot Thêm tên : PhoneNumEmp Thêm loại slot : AMAZON.PhoneNumber Thêm Prompts : what your phone number ? Làm tương tự cho tên của nhân viên Thêm tên : FirstName Thêm loại slot : AMAZON.FirstName Thêm Prompts : tell me your name ? Làm tương tự cho công việc của nhân viên Thêm tên : FirstName Thêm loại slot : AMAZON.FirstName Thêm Prompts : tell me your name ? Trong phần Confirmation :\nNhấp Active Điền Confirmation prompt : so your name is {FirstName} , phone number {PhoneNumEmp} and current job postion is {job_position} correct ? Decline response prompt : okay we will ask again Trong phần Fulfillment nhấp vào Active Cuối cùng nhấp vào Use a Lambda function for initialization and validation sau đó nhấp build Cấu hình kiểm tra :\nNhấp vào test Nhấp vào biểu tượng cài đặt Với nguồn chọn BotFunction Sau đó chọn Lưu Điền thông tin cần thiết để kiểm tra bot Kiểm tra cơ sở dữ liệu để xem xem thông tin có được đăng ký hay không, truy cập AWS Dynamodbv2\nNhấp vào Khám phá mục Trong Khám phá mục nhấp vào EmployeesDataBases : Chúng ta có thể thấy rằng thông tin đã được lưu vào cơ sở dữ liệu của chúng ta\n"
+},
+{
+	"uri": "/vi/2-preparation/2.2-creatingiamroles/",
+	"title": "Tạo IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "Tạo IAM Role Trong bước này, chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này, các chính sách AmazonDynamoDBFullAccess và CloudWatchFullAccess sẽ được gán, đây là các chính sách cho phép Lambda function tương tác với cơ sở dữ liệu DynamoDB.\nTruy cập giao diện quản lý dịch vụ IAM Trong thanh điều hướng bên trái, nhấp vào Roles. Nhấp Tạo vai trò. ở Chọn thực thể đáng tin cậy Nhấp Dịch vụ AWS. Nhấp Lambda Nhấp Tiếp theo Trong ô Tìm kiếm, nhập AmazonDynamoDBFullAccess và nhấn Enter để tìm kiếm chính sách này. Nhấp vào chính sách AmazonDynamoDBFullAccess. Trong ô Tìm kiếm, nhập CloudWatchFullAccess và nhấn Enter để tìm kiếm chính sách này. Nhấp vào chính sách CloudWatchFullAccess sau đó nhấp Tiếp theo Nhấp Tiếp theo: Xem xét. Đặt tên cho Vai trò là BotRoles trong Mục Tên Vai trò Kiểm tra lại xem các vai trò có đúng không Nhấp Tạo vai trò Tiếp theo, chúng ta sẽ cấu hình vai trò cho Lambda để nó có thể gọi vào cơ sở dữ liệu.\n"
+},
+{
+	"uri": "/vi/3-creatinglexbot/",
+	"title": "Tạo Bot Lex",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ cấu hình bot AWS Lexv2 của chúng ta với các slot và intent chính xác và kết nối nó với hàm Lambda của chúng ta. Nội dung 3.1. Tạo loại bot Lex và tùy chỉnh\n3.2. TẠO BOT LEX\n"
+},
+{
+	"uri": "/vi/2-preparation/2.3-creatinglambdafunction/",
+	"title": "Tạo Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ tìm hiểu cách tạo một Lambda function để làm việc với DynamoDb và là logic thực hiện cho bot Lex của chúng ta\nTổng quan kiến trúc sau khi bạn hoàn thành bước này sẽ như sau:\nTruy cập Giao diện Dịch vụ Lambda Nhấp vào tạo hàm Trong trang tạo hàm đặt Tên hàm thành BotFunction đặt Runtime thành Python 3.11 chọn Kiến trúc thành x86_64 thay đổi Vai trò thực thi mặc định thành Sử dụng vai trò đã tồn tại trong vai trò đã tồn tại, chọn BotRoles mà chúng ta đã tạo sau đó nhấp Tạo hàm Trong BotFunction, nhấp vào cấu hình Trong tab cấu hình : nhấp vào Biến môi trường sau đó nhấp Chỉnh sửa Trong tab chỉnh sửa, nhấp vào Thêm biến môi trường Chỉnh sửa khóa và giá trị để kết nối cơ sở dữ liệu với hàm Lambda : cho môi trường, thêm khóa TABLE_NAME cho giá trị, thêm EmployeesDataBases sau đó nhấp Lưu Lấy mã cho Hàm Lambda : truy cập vào liên kết Github này GITHUB sau đó nhấn ctrl + A để sao chép toàn bộ mã Dán mã vào tab mã trong BotFunction sau đó nhấp Triển khai Bây giờ chúng ta đã hoàn thành việc chuẩn bị cho cơ sở dữ liệu và logic cho bot Lex, bây giờ chúng ta sẽ tiếp tục cấu hình cho bot Lex\n"
+},
+{
+	"uri": "/vi/4-twillio/",
+	"title": "Twillio",
+	"tags": [],
+	"description": "",
+	"content": "Trong chương này, chúng ta sẽ cấu hình Twilio để làm việc với bot Amazon Lex của chúng ta.\nTạo một tài khoản Twilio Mở Twilio bằng liên kết sau: TWILLIO\nNhấp vào đăng nhập sau đó làm theo hướng dẫn để đăng nhập vào tài khoản của bạn Chọn phần quan trọng nhất trong cấu hình TWILLIO : Chọn SMS làm sử dụng Trong phần Làm thế nào bạn muốn xây dựng với Twilio chọn với mã tối thiểu Sau đó nhấp bắt đầu Trong màn hình chính của Twilio, chọn get phone number Nhấp vào tài khoản Twilio của bạn Lấy Account SID và Auth Token để sử dụng với bot Lex Xây dựng bot Lex để làm việc với Twilio Trên phiên bản bot nhấp vào tạo phiên bản Nhấp vào Tạo phiên bản Trong tích hợp kênh nhấp Thêm kênh Trong mẫu tạo tích hợp kênh :\nNhấp vào Twilio Đặt tên bot là bot Twilio Chọn TestBotAlias Chọn ngôn ngữ là English Sau đó thêm Account ID và khóa xác thực trong tài khoản Twilio của bạn 5 Khi tạo thành công, sao chép URL của kênh Gọi điện thoại bằng Twilio Kiểm tra tin nhắn WhatsApp Trong Twilio nhấp vào Tin nhắn Nhấp vào Gửi tin nhắn WhatsApp Trong WhatsApp thử gửi tin nhắn, Twilio sẽ cung cấp số điện thoại và mã tham gia hãy sao chép chúng: Tìm số Twilio trên WhatsApp sau đó nhập mã vào Twilio Trong cài đặt bot của WhatsApp sao chép URL bot Lex vào phần post Sau đó nhấn lưu Bây giờ bạn có thể trò chuyện với bot Lex của mình qua WhatsApp sử dụng Twilio "
+},
+{
+	"uri": "/vi/5-cleanup/",
+	"title": "Dọn dẹp",
+	"tags": [],
+	"description": "",
+	"content": "Trong chương này, chúng ta sẽ làm sạch tất cả các tài nguyên mà chúng ta đã sử dụng.\nDọn dẹp cơ sở dữ liệu Dynamodb Điều hướng đến bảng điều khiển Dynamodb Dynamodb Nhấp vào EmployeesDatabases Nhấp vào Xóa Một biểu mẫu xác nhận xóa sẽ xuất hiện : Điền vào \u0026ldquo;confirm\u0026rdquo; Sau đó nhấp Xóa Dọn dẹp hàm Lambda Điều hướng đến Giao diện Dịch vụ Lambda Nhấp vào BotFunction Nhấp vào Xóa Một biểu mẫu xác nhận xóa sẽ xuất hiện : Điền vào \u0026ldquo;delete\u0026rdquo; Sau đó nhấp Xóa Dọn dẹp bot Lex Điều hướng đến bảng điều khiển bot Lex lex bot Nhấp vào Xóa để xóa bot Lex "
+},
+{
+	"uri": "/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

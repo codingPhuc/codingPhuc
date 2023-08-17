@@ -12,21 +12,21 @@
     <title>Create IAM Role :: Creating Chat bot using lex bot</title>
 
     
-    <link href="../../css/nucleus.css?1692182202" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1692182202" rel="stylesheet">
-    <link href="../../css/hybrid.css?1692182202" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1692182202" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1692182202" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1692182202" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1692182202" rel="stylesheet">
-    <link href="../../css/theme.css?1692182202" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1692182202" rel="stylesheet">
+    <link href="../../css/nucleus.css?1692258666" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1692258666" rel="stylesheet">
+    <link href="../../css/hybrid.css?1692258666" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1692258666" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1692258666" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1692258666" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1692258666" rel="stylesheet">
+    <link href="../../css/theme.css?1692258666" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1692258666" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1692182202" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1692258666" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1692182202"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1692258666"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1692182202"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1692182202"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1692258666"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1692258666"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1692182202"></script>
+<script type="text/javascript" src="../../js/search.js?1692258666"></script>
 
     
   </div>
@@ -390,6 +390,51 @@
       <hr/>
       <ul>
       
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/2-preparation/2.2-creatingiamroles/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/2-preparation/2.2-creatingiamroles/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
       
       
         <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
@@ -529,14 +574,14 @@
 <li>Click <strong>Next</strong></li>
 </ul>
 <p><img src="../../images/2.prerequisite/IAM-3-a.png" alt="role1"></p>
-<ol>
+<ol start="5">
 <li>In the Search box, enter <strong>AmazonDynamoDBFullAccess</strong> and press Enter to search for this policy.</li>
 </ol>
 <ul>
 <li>Click the policy <strong>AmazonDynamoDBFullAccess</strong>.
 <img src="../../images/2.prerequisite/IAM-4-a.png" alt="createpolicy1"></li>
 </ul>
-<ol start="2">
+<ol start="6">
 <li>In the Search box, enter <strong>CloudWatchFullAccess</strong> and press Enter to search for this policy.</li>
 </ol>
 <ul>
@@ -544,12 +589,12 @@
 <li>then click <strong>Next</strong>
 <img src="../../images/2.prerequisite/IAM-5-a.png" alt="createpolicy"></li>
 </ul>
-<ol>
+<ol start="7">
 <li>Click <strong>Next: Review</strong>.</li>
 <li>Name the Role <strong>BotRoles</strong> in Role Name
-<img src="../../images/2.prerequisite/IAM-6-a.png" alt="createpolicy">
-check again if the roles are correct<br>
-Click <strong>Create Role</strong>
+<img src="../../images/2.prerequisite/IAM-6-a.png" alt="createpolicy"></li>
+<li>check again if the roles are correct</li>
+<li>Click <strong>Create Role</strong>
 <img src="../../images/2.prerequisite/IAM-7-a.png" alt="createpolicy"></li>
 </ol>
 <p>Next, we will configure the role to Lambda so it can be able to call the databases.</p>
@@ -785,19 +830,19 @@ Click <strong>Create Role</strong>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1692182202"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1692182202"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1692182202"></script>
-    <script src="../../js/jquery.sticky.js?1692182202"></script>
-    <script src="../../js/featherlight.min.js?1692182202"></script>
-    <script src="../../js/highlight.pack.js?1692182202"></script>
+    <script src="../../js/clipboard.min.js?1692258666"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1692258666"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1692258666"></script>
+    <script src="../../js/jquery.sticky.js?1692258666"></script>
+    <script src="../../js/featherlight.min.js?1692258666"></script>
+    <script src="../../js/highlight.pack.js?1692258666"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1692182202"></script>
-    <script src="../../js/learn.js?1692182202"></script>
-    <script src="../../js/hugo-learn.js?1692182202"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1692258666"></script>
+    <script src="../../js/learn.js?1692258666"></script>
+    <script src="../../js/hugo-learn.js?1692258666"></script>
 
-    <link href="../../mermaid/mermaid.css?1692182202" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1692182202"></script>
+    <link href="../../mermaid/mermaid.css?1692258666" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1692258666"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
